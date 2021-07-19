@@ -5,53 +5,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jason's Guestbook</title>
+    <title>Guestbook</title>
     <style>
+        * {
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             text-align: center;
             background-color: black;
             background-image: url("images/blackwav.gif");
-            color: rgb(255, 255, 255);
+            color: rgb(95 196 255);
         }
-
         .container {
+            text-align: left;
+            width: 610px;
+            margin:auto;
+            border: solid 1px blue;
+            background-color: rgb(33 33 39 / 95%);
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .footer {
             text-align: center;
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
             justify-content: center;
+            align-items: center;
         }
-
-        .form {
-            max-width: 500px;
-            min-width: 400px;
-            border: solid 1px white;
+        h1 {
+            text-align: center;
+            margin-bottom: -55px;
+            margin-top: 50px;
+        }
+        table {
+            padding: 10px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Sign my guestbook</h1>
+    <h1>Jason's Guestbook</h1>
+    <img src="images/Subzero.gif" />
+    <img src="images/fire.gif" />
+    <img src="images/scorpion.gif" />
     <div class="container">
-        <div class="form">
-            <form method="get" action="/comment">
-                <label for="name">Name</label><br>
-                <input type="text" id="name" name="name"><br>
-                <label for="email">Email</label><br>
-                <input type="text" id="email" name="email"><br>
-                <label for="comment">Comment</label><br>
-                <textarea wrap="virtual" rows="5" cols="35" name="comment"></textarea>
-                <br>
-                <input type="submit" value="Sign">
-            </form>
-        </div>
-        <div>
-
-            <img src="images/bluebar2.gif" />
-            <img src="/images/back1.gif" />
-            <img src="images/bluebar2.gif" />
-        </div>
+        <% if(people.length> 0) { %>
+            <% people.map((comment)=> { %>
+                <table>
+                    <tr>
+                        <td>Time:</td><td><%= comment.date %></td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td><td><%= comment.name %></td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td><td><%= comment.email %></td>
+                    </tr>
+                    <tr>
+                    <td>Comment:&nbsp&nbsp</td><td><%= comment.comment %></td>
+                </tr>
+            </table>
+            <img src="/images/bluebar2.gif" />
+            <% }) %>
+        <% } %>
+        
     </div>
-</body>
-
+    <div class="footer">
+        <img src="/images/skull.gif" />
+        <a href="/"><img src="images/back1.gif" /></a>
+        <img src="/images/skull.gif" />
+    </div>
+    </body>
+        
 </html>

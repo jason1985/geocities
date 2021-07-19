@@ -1,36 +1,57 @@
 const express = require('express')
-const app = express()
+const moment = require('moment')
 const db = require('./firebase.js')
+const app = express()
 
+// firebase functions
+async function getComments() {
+    const snapshot = await db.collection('guestbook').orderBy("date", "desc").get()
+    return snapshot.docs.map(doc => doc.data())
+}
+
+function addComment(name,email,comment) {
+    db.collection("guestbook").doc().set({
+        date: moment().format('MMMM Do YYYY, h:mm a'),
+        name: name,
+        email: email,
+        comment: comment
+    })
+    .then(() => {
+        console.log("Document successfully written!");
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
+// firebase
 
 app.use(express.static("public")); 
 app.set('view engine', 'ejs')
 
+//end points
 app.get('/', (req, res) => {
-    res.render('index',{test: 'sdfsdf'})
+    res.render('index')
 })
 
-app.get('/guestbook', (req, res) => {
-    res.render('guestbook',{test: 'sdfsdf'})
+//sign guestbook
+app.get('/sign', (req, res) => {
+    res.render('sign')
 })
 
-//handles comment submition
-app.get('/comment', (req, res) => {
-    res.render('index',{test: 'sdfsdf'})
-    console.log(req.query.name)
-})
-
-async function getComments() {
-    const snapshot = await db.collection('guestbook').get()
-    return snapshot.docs.map(doc => doc.data())
-}
-
-app.get('/comments', async (req, res) => {
+//handle sign submition
+app.get('/comment', async (req, res) => {
+    // res.render('index')
+    addComment(req.query.name,req.query.email,req.query.comment)
+    //not sure if this is the best way to do this
     let people = await getComments()
-    console.log(people)
-    res.render('comments',{people})
+    res.render('guestbook', {people})
 })
 
+//view guestbook
+app.get('/guestbook', async (req, res) => {
+    let people = await getComments()
+    res.render('guestbook', {people})
+})
 
 app.listen(5000, () => {
     console.log('Server running on port 5000')
