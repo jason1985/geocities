@@ -9,8 +9,8 @@
     <style>
         body {
             text-align: center;
-            background-color: black;
-            background-image: url("images/blackwav.gif");
+            background-image: url(images/blackwav.gif), linear-gradient(rgb(0 0 0 / 53%),rgb(0 0 0 / 32%));
+            background-blend-mode: overlay;
             color: rgb(255, 255, 255);
         }
         .container {
@@ -24,10 +24,11 @@
         
         .form {
             padding: 10px;
+            border: solid 1px blue;
+            background-color: rgb(33 33 39 / 95%);
             overflow: hidden;
             max-width: 500px;
             min-width: 400px;
-            border: solid 1px white;
             margin-bottom: 1rem;
         }
         .footer {

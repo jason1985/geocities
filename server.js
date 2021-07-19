@@ -29,9 +29,6 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs')
 
 //end points
-app.get('/', (req, res) => {
-    res.render('index')
-})
 
 //sign guestbook
 app.get('/sign', (req, res) => {
@@ -53,6 +50,9 @@ app.get('/guestbook', async (req, res) => {
     res.render('guestbook', {people})
 })
 
+app.get('*', (req, res) => {
+    res.render('index')
+})
 app.listen(5000, () => {
     console.log('Server running on port 5000')
 })

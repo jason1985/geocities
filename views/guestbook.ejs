@@ -14,9 +14,9 @@
         }
         body {
             text-align: center;
-            background-color: black;
-            background-image: url("images/blackwav.gif");
-            color: rgb(95 196 255);
+            background-image: url(images/blackwav.gif), linear-gradient(rgb(0 0 0 / 53%),rgb(0 0 0 / 32%));
+            background-blend-mode: overlay;
+            color: rgb(255, 255, 255);
         }
         .container {
             text-align: left;
@@ -41,10 +41,18 @@
         table {
             padding: 10px;
         }
+        .back {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="back">
+        <a href="/"><img src="images/back1.gif" /></a>
+    </div>
     <h1>Jason's Guestbook</h1>
     <img src="images/Subzero.gif" />
     <img src="images/fire.gif" />
@@ -76,6 +84,11 @@
         <a href="/"><img src="images/back1.gif" /></a>
         <img src="/images/skull.gif" />
     </div>
+    <script>
+        //if we came here after posting a comment, this clears the url
+        //because if we don't & they hit refresh, it will keep the old url & post another comment
+        history.pushState('', '', location.href.split('/comment')[0])
+    </script>
     </body>
         
 </html>
