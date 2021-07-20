@@ -7,11 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jason's Guestbook</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             text-align: center;
             background-image: url(images/blackwav.gif), linear-gradient(rgb(0 0 0 / 53%),rgb(0 0 0 / 32%));
             background-blend-mode: overlay;
             color: rgb(255, 255, 255);
+        }
+        h1 {
+            text-align: center;
         }
         .container {
             text-align: center;
@@ -27,8 +36,9 @@
             border: solid 1px blue;
             background-color: rgb(33 33 39 / 95%);
             overflow: hidden;
-            max-width: 500px;
-            min-width: 400px;
+            max-width: 100%;
+            /* max-width: 500px;
+            min-width: 400px; */
             margin-bottom: 1rem;
         }
         .footer {
@@ -56,9 +66,9 @@
             </form>
         </div>
         <div class="footer">
-            <img src="/images/skull.gif" />
+            <img src="/images/Skull.gif" />
             <a href="/"><img src="images/back1.gif" /></a>
-            <img src="/images/skull.gif" />
+            <img src="/images/Skull.gif" />
         </div>
     </div>
 </body>

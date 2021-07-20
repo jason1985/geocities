@@ -7,8 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jason's Website</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            flex-direction: column;
             background-image: url(images/blackwav.gif), linear-gradient(rgb(0 0 0 / 53%),rgb(0 0 0 / 32%));
             background-blend-mode: overlay;
             color: rgb(255, 255, 255);
@@ -17,16 +26,19 @@
             height: 100px;
             width: 100px;
         }
+        .bar {
+            max-width: 100%;
+        }
         </style>
 </head>
 
 <body>
     <h1>Jason's Website</h1>
-    <img src="images/barraconstruction.gif" />
+    <img class="bar" src="images/barraconstruction.gif" />
     <br>
     <h2>Welcome to my website!</h2>
     <h2>I enjoy playing Nintendo 64</h2>
-    <img src="images/n64.gif" /><br>
+    <img src="images/N64.gif" /><br>
     <img src="images/007.gif" /><br>
     <h2>I also like these games</h2>
     <img src="images/box1.gif" /><br>
@@ -39,23 +51,23 @@
     <img class="book" src="images/krc.png" />
     <br>
     <h2>Please sign my guestbook below!</h2>
-    <img src="images/bluebar2.gif" />
+    <img class="bar" src="images/bluebar2.gif" />
     <br>
     <br>
     <a  href="/sign"><img src="images/signguestbook.gif" /></a>
     <br>
     <br>
-    <img src="images/bluebar2.gif" />
+    <img class="bar" src="images/bluebar2.gif" />
     <br>
     <br>
     <a href="/guestbook"><img src="images/viewguestbook.gif" /></a>
     <br>
     <br>
-    <img src="images/bluebar2.gif" />
+    <img class="bar" src="images/bluebar2.gif" />
     <br>
     <br>
     <img class="toasty" src="images/Subzero.gif" />
-    <img src="images/fire.gif" />
+    <img class="bar" src="images/fire.gif" />
     <img class="toasty" src="images/Reptile.gif" />
     <br>
     <br>
@@ -72,7 +84,7 @@
     <br>
     <img src="images/netscape.gif" />
     <br>
-     <img src="images/modem.gif" />
+     <img class="bar" src="images/modem.gif" />
     <br>
     <img src="images/y2k.gif" />
     <h2>

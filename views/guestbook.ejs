@@ -20,7 +20,6 @@
         }
         .container {
             text-align: left;
-            width: 610px;
             margin:auto;
             border: solid 1px blue;
             background-color: rgb(33 33 39 / 95%);
@@ -46,6 +45,13 @@
             top: 10px;
             left: 10px;
         }
+        .bar {
+            max-width: 100%;
+        }
+        img {
+            position: relative;
+            z-index: -1
+        }
     </style>
 </head>
 
@@ -55,12 +61,12 @@
     </div>
     <h1>Jason's Guestbook</h1>
     <img src="images/Subzero.gif" />
-    <img src="images/fire.gif" />
+    <img class="bar" src="images/fire.gif" />
     <img src="images/scorpion.gif" />
     <div class="container">
         <% if(people.length> 0) { %>
             <% people.map((comment)=> { %>
-                <table>
+                <table class="bar">
                     <tr>
                         <td>Time:</td><td><%= comment.date %></td>
                     </tr>
@@ -80,9 +86,9 @@
         
     </div>
     <div class="footer">
-        <img src="/images/skull.gif" />
+        <img src="/images/Skull.gif" />
         <a href="/"><img src="images/back1.gif" /></a>
-        <img src="/images/skull.gif" />
+        <img src="/images/Skull.gif" />
     </div>
     <script>
         //if we came here after posting a comment, this clears the url
