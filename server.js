@@ -2,6 +2,9 @@ const express = require('express')
 const moment = require('moment')
 const db = require('./firebase.js')
 const app = express()
+require("dotenv").config()
+
+const port = process.env.PORT || 5000
 
 // firebase functions
 async function getComments() {
@@ -53,6 +56,7 @@ app.get('/guestbook', async (req, res) => {
 app.get('*', (req, res) => {
     res.render('index')
 })
-app.listen(5000, () => {
-    console.log('Server running on port 5000')
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`)
 })
